@@ -12,7 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM centos
+FROM rhel7
+
+COPY epel.repo /etc/yum.repos.d/epel.repo
 
 RUN yum install epel-release -y
 
