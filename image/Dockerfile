@@ -18,6 +18,10 @@ COPY epel.repo /etc/yum.repos.d/epel.repo
 
 COPY logrotate-3.8.6-14.el7.x86_64.rpm /tmp/
 
+COPY hostname-3.13-3.el7.x86_64.rpm /tmp/
+
+RUN yum install /tmp/hostname-3.13-3.el7.x86_64.rpm -y
+
 RUN yum install /tmp/logrotate-3.8.6-14.el7.x86_64.rpm -y
 
 COPY RPM-GPG-KEY-EPEL-7 /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
@@ -25,8 +29,6 @@ COPY RPM-GPG-KEY-EPEL-7 /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
 RUN yum install epel-release -y
 
 RUN yum install redis -y
-
-RUN yum install hostname -y
 
 COPY redis-master.conf /redis-master/redis.conf
 COPY redis-slave.conf /redis-slave/redis.conf
