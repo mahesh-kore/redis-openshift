@@ -14,6 +14,8 @@
 
 FROM rhel7
 
+RUN mkdir /etc/yum.repos.d
+
 COPY epel.repo /etc/yum.repos.d/epel.repo
 
 RUN yum install epel-release -y
