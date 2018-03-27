@@ -25,7 +25,8 @@ RUN yum install redis hostname -y ; yum clean all
 COPY redis-master.conf /redis-master/redis.conf
 COPY redis-slave.conf /redis-slave/redis.conf
 COPY run.sh /run.sh
-RUN mkdir -p /redis-sentinel && chmod -R 777 /redis-sentinel /redis-slave /run.sh
+RUN mkdir -p /redis-sentinel && chmod -R 777 /redis-sentinel /redis-slave 
+RUN chmod 777 /run.sh
 
 CMD [ "/run.sh" ]
 
